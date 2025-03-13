@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Carros</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f5f9;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cabecalho {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1e1e1e;
+            padding: 20px;
+            color: white;
+        }
+        
+        .cabecalho h2 {
+            font-size: 2em;
+            margin: 0;
+        }
+        
+        .cabecalho h3 {
+            font-size: 1.2em;
+            margin: 0;
+            margin-left: 20px;
+        }
+        
+        .icon button {
+            position: relative;
+            margin-top: 30px;
+            left: 20px;
+        }
+        .menu-button {
+            background-color: #bf0707;
+            color: white;
+            border: none;
+            border-radius: 15%;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            background-color: darkred;
+        }
+
+        .filters {
+            display: none;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .filters button:hover {
+            background: #f0f0f0;
+        }
+
+        .filters.active {
+            display: block;
+        }
+
+        .filters button {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            background: #bf0707;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .filters button:hover {
+            background: #820808;
+        }
+
+        /* Estilo para os cartões dos carros */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            margin: 15px;
+            display: inline-block;
+            vertical-align: top;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para o carrossel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 1;
+            transform: translateY(-50%);
+            border-radius: 20%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .car-details {
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .car-details h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .car-details p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .car-details strong {
+            color: #333;
+        }
+
+        h2, h3 {
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1em;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .cabecalho h2, .cabecalho h3 {
+                font-size: 1.5em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div>
+            <h2>Cátalogo de Carros</h2>
+            <h3>Célio Veículos</h3>
+        </div>
+        <a class="icon" href=""><button>📞</button></a>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.19.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.20.jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.20 (1).jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.21.jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.21 (1).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.21 (2).jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.44.22.jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.09.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.10.jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.10 (1).jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.11.jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.11 (1).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.12 (1).jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.57.12.jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.28.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.29.jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.29 (1).jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.29 (2).jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.30.jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.30 (1).jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 10.59.30 (2).jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.37.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.38.jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.39.jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.39 (1).jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.39 (2).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.40 (2).jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.05.41.jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.48.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.49 (1).jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.49.jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.50.jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.50 (1).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.51 (2).jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.28.52 (1).jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.16.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.16 (1).jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.18.jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.18 (1).jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.18 (2).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.17.jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-13 at 11.48.17 (1).jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.15.jpeg" alt="Carro 1" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.16.jpeg" alt="Carro 2" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.16 (1).jpeg" alt="Carro 3" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.18.jpeg" alt="Carro 4" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.16 (2).jpeg" alt="Carro 5" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.17.jpeg" alt="Carro 6" class="car-image">
+                <img src="carro\base\WhatsApp Image 2025-02-25 at 06.39.17 (1).jpeg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Nome do Carro</h3>
+            <p><strong>Preço:</strong> R$ 50.000,00</p>
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>Quilometragem:</strong> 25.000 km</p>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step, event, carouselElement) {
+            event.stopPropagation(); 
+
+            const images = carouselElement.querySelectorAll('img');
+            const totalImages = images.length;
+
+            currentIndex = (currentIndex + step + totalImages) % totalImages;
+            carouselElement.style.transform = `translateX(-${currentIndex * 53}%)`;
+        }
+    </script>
+
+</body>
+</html>
