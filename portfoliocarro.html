@@ -59,6 +59,13 @@
             max-width: 90px;
             height: auto;  /* Mantém a proporção da logo */
         }
+        .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
         .product-card {
             background-color: #333; /* Cartões mais escuros para destacar os carros */
@@ -181,6 +188,7 @@
         <a class="icon" href="https://www.whatsapp.com/catalog/558888499359/?app_absent=0" target="_blank">📞</a>
         <a href="https://www.instagram.com/cielio_veiculos/" class="icon" target="_blank">📷</a>
     </div>
+    <div class="container">
     <div class="product-card">
         <div class="carousel">
             <div class="carousel-images">
@@ -330,6 +338,91 @@
             <p><strong></strong></p>
         </div>
     </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="base\IMG-20250314-WA0033.jpg" alt="Carro 1" class="car-image">
+                <img src="base\IMG-20250314-WA0034.jpg" alt="Carro 2" class="car-image">
+                <img src="base\IMG-20250314-WA0039.jpg" alt="Carro 3" class="car-image">
+                <img src="base\IMG-20250314-WA0032.jpg" alt="Carro 4" class="car-image">
+                <img src="base\IMG-20250314-WA0037.jpg" alt="Carro 5" class="car-image">
+                <img src="base\IMG-20250314-WA0037.jpg" alt="Carro 6" class="car-image">
+                <img src="base\IMG-20250314-WA0035.jpg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Golf</h3>
+            <p><strong>Com Teto</strong></p>
+            <p><strong>Ano:</strong> 2014</p>
+            <p><strong>Quilometragem:</strong> 145 km</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="base\IMG-20250314-WA0048.jpg" alt="Carro 1" class="car-image">
+                <img src="base\IMG-20250314-WA0038.jpg" alt="Carro 2" class="car-image">
+                <img src="base\IMG-20250314-WA0044.jpg" alt="Carro 3" class="car-image">
+                <img src="base\IMG-20250314-WA0043.jpg" alt="Carro 4" class="car-image">
+                <img src="base\IMG-20250314-WA0040.jpg" alt="Carro 5" class="car-image">
+                <img src="base\IMG-20250314-WA0047.jpg" alt="Carro 6" class="car-image">
+                <img src="base\IMG-20250314-WA0041.jpg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Ranger</h3>
+            <p><strong>Manual</strong></p>
+            <p><strong>Ano:</strong> 2013</p>
+            <p><strong>Diesel</strong></p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="base\IMG-20250314-WA0042.jpg" alt="Carro 1" class="car-image">
+                <img src="base\IMG-20250314-WA0053.jpg" alt="Carro 2" class="car-image">
+                <img src="base\IMG-20250314-WA0050.jpg" alt="Carro 3" class="car-image">
+                <img src="base\IMG-20250314-WA0052.jpg" alt="Carro 4" class="car-image">
+                <img src="base\IMG-20250314-WA0049.jpg" alt="Carro 5" class="car-image">
+                <img src="base\IMG-20250314-WA0045.jpg" alt="Carro 6" class="car-image">
+                <img src="base\IMG-20250314-WA0046.jpg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Ônix 1.4 LTZ</h3>
+            <p><strong></strong></p>
+            <p><strong>Ano:</strong> 2015</p>
+            <p><strong>Quilometragem:</strong> 76 km rodados</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="base\IMG-20250314-WA0060.jpg" alt="Carro 1" class="car-image">
+                <img src="base\IMG-20250314-WA0057.jpg" alt="Carro 2" class="car-image">
+                <img src="base\IMG-20250314-WA0058.jpg" alt="Carro 3" class="car-image">
+                <img src="base\IMG-20250314-WA0059.jpg" alt="Carro 4" class="car-image">
+                <img src="base\IMG-20250314-WA0051.jpg" alt="Carro 5" class="car-image">
+                <img src="base\IMG-20250314-WA0061.jpg" alt="Carro 6" class="car-image">
+                <img src="base\IMG-20250314-WA0056.jpg" alt="Carro 7" class="car-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10094;</button>
+            <button class="next" onclick="moveSlide(1, event, this.closest('.carousel').querySelector('.carousel-images'))">&#10095;</button>                               
+        </div>
+        <div class="car-details">
+            <h3>Kicks</h3>
+            <p><strong>automático</strong></p>
+            <p><strong>Ano:</strong> 2021</p>
+            <p><strong>Quilometragem</strong> 60 km rodados</p>
+        </div>
+    </div>
+</div>
     <script>
         function moveSlide(direction, event, carouselImages) {
             event.preventDefault(); // Evita ações inesperadas
